@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TI_GRAFOS_2019
 {
-    class Grafo
+    class Aresta
     {
-        private Vertice vertice;
-        private Aresta aresta;
+        private string aresta;
     }
 }
