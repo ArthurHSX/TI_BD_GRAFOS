@@ -9,5 +9,6 @@ namespace TI_GRAFOS_2019
     class Aresta
     {
         private string aresta;
+        private string a;
     }
 }
