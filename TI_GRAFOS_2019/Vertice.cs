@@ -10,5 +10,6 @@ namespace TI_GRAFOS_2019
     {
         private int grau;
         //afafsefvsdfvrsg
+        
     }
 }
