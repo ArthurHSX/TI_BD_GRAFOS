@@ -10,5 +10,6 @@ namespace TI_GRAFOS_2019
     {
         private Vertice vertice;
         private Aresta aresta;
+        private int[] matriz;
     }
 }
