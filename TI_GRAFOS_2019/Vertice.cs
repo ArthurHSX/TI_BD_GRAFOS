@@ -9,5 +9,6 @@ namespace TI_GRAFOS_2019
     class Vertice
     {
         private int grau;
+        //TESTE
     }
 }
