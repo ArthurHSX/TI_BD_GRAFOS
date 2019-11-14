@@ -18,7 +18,7 @@ namespace TI_GRAFOS_2019
         public List<Vertice> Lista_ADJ_Vertice
         {
             get => lista_ADJ_Vertice;
-            set => lista_ADJ_Vertice = value;
+            //set => lista_ADJ_Vertice = value;
         }
         
     }
