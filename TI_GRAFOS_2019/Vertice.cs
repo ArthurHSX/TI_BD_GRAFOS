@@ -18,18 +18,21 @@ namespace TI_GRAFOS_2019
         private int id;
         private int grau;
         private List<Vertice> lista_adj_vertices;
-        private List<Aresta> lista_Arestas;
+        //private List<Aresta> lista_Arestas;
 
         public Vertice(int _id)
         {
             this.id = _id;
+            this.lista_adj_vertices = new List<Vertice>();
+            this.lista_Arestas = new List<Aresta>();
+            this.CountGrau();
         }
         public Vertice(int _id, List<Vertice> _listaVertices)
         {
             this.id = _id;
             this.lista_adj_vertices = _listaVertices;
             this.CountGrau();
-            this.lista_Arestas = null;
+            this.lista_Arestas = null;//*******
         }
 
         public Vertice(int _id, List<Vertice> _listaVertices, List<Aresta> _arestas)

@@ -16,7 +16,8 @@ namespace TI_GRAFOS_2019
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());      
+            //Application.Run(new Form1());    
+            TesteImplementacaoGrafo();
         }
         static void TesteImplementacaoGrafo()
         {
@@ -37,7 +38,7 @@ namespace TI_GRAFOS_2019
              */
             #endregion
             Grafo grafo;
-            List<Vertice> listaVertices;
+            List<Vertice> listaVertices = new List<Vertice>();
             Vertice[] verticesA = new Vertice[6];           
             verticesA[0] = new Vertice(1);
             verticesA[1] = new Vertice(2);

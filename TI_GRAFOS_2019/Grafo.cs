@@ -9,11 +9,12 @@ namespace TI_GRAFOS_2019
     class Grafo
     {
         private List<Vertice> lista_ADJ_Vertice;
-        //private List<Aresta> lista_Arestas;
+        private List<Aresta> lista_Arestas;
 
-        public Grafo(List<Vertice> _lista_ADJ_Vertices)
+        public Grafo(List<Aresta> _lista_Arestas)
         {
-            this.lista_ADJ_Vertice = _lista_ADJ_Vertices;
+            this.lista_ADJ_Vertice = new List<Vertice>();
+            this.lista_Arestas = _lista_Arestas;
         }
         public List<Vertice> Lista_ADJ_Vertice
         {
