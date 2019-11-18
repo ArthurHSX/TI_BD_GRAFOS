@@ -14,10 +14,10 @@ namespace TI_GRAFOS_2019
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());    
-            TesteImplementacaoGrafo();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+            //TesteImplementacaoGrafo();
         }
         static void TesteImplementacaoGrafo()
         {
@@ -60,7 +60,7 @@ namespace TI_GRAFOS_2019
             listaVertices.ElementAt(4).ListaADJ.Add(new Vertice(6));
             listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
-            grafo = new Grafo(listaVertices);
+            //grafo = new Grafo(listaVertices);
         }
     }
 }
