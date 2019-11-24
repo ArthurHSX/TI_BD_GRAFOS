@@ -14,7 +14,7 @@ namespace TI_GRAFOS_2019
             base.Lista_ADJ_Vertice = _listaVertices;
             PreencheListaTorres(_codigoTorre);
         }
-        public List<Torre> Torres
+        public List<Torre> ListaTorres
         {
             get => this.torres;
         }

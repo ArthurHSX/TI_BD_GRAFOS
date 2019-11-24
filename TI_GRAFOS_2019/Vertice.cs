@@ -71,5 +71,9 @@ namespace TI_GRAFOS_2019
         {
             return ( (this.id == _vertice.id) ? true : false );
         }
+        public bool Comparar(int _id)
+        {
+            return ((this.id == _id) ? true : false);
+        }
     }
 }
