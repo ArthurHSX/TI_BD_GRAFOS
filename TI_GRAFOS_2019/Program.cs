@@ -92,6 +92,6 @@ namespace TI_GRAFOS_2019 {
         //    listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
             //grafo = new Grafo(listaVertices);
-        }
+        //}
     }
 }
