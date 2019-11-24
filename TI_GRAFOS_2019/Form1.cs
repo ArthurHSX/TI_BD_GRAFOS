@@ -12,9 +12,16 @@ namespace TI_GRAFOS_2019
 {
     public partial class Form1 : Form
     {
+        Infraestrutura infraestrutura;
         public Form1()
         {
-            InitializeComponent();
+            LeituraArquivo();
+            //infraestrutura = new Infraestrutura();
+            InitializeComponent();            
+        }
+        private void LeituraArquivo()
+        {
+
         }
     }
 }

@@ -45,7 +45,7 @@ namespace TI_GRAFOS_2019
         //    this.CountGrau();
         //}
 
-        internal List<Vertice> ListaADJ
+        public List<Vertice> ListaADJ
         {
             get => this.lista_adj_vertices;
             set
@@ -54,32 +54,17 @@ namespace TI_GRAFOS_2019
                 this.grau = this.lista_adj_vertices.Count;
             }
         }
-        protected int ID 
+        public int ID 
         { 
-            get => id; set => this.id = value; 
+            get => id; 
+            set => this.id = value; 
         }
 
-        protected int Grau { get => grau; }
+        public int Grau { get => grau; }
         private protected void CountGrau()
         {
-            try
-            {
-                if (this.lista_adj_vertices.Count != this.lista_Arestas.Count)
-                {
-                    this.grau = int.MaxValue;
-                    throw new Exception("Valores diferentes");
-                }
-                this.grau = this.lista_adj_vertices.Count;
-            }
-            catch(Exception e) when (e.Message == "Valores diferentes")
-            {
-                string texto = "A quantidade de elementos na 'Lista de adjacência' é diferente" +
-                               " da quantidade de elementos na 'Lista de Arestas'."+
-                               "\n\n Verifique o método de leitura do arquivo";
-                string titulo = "Erro na quantidade de elementos";
-
-                MessageBox.Show(texto, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            this.grau = this.lista_adj_vertices.Count;         
             
         }
         public bool Comparar(Vertice _vertice)
