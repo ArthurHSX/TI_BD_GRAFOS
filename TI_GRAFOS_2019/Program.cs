@@ -3,24 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
-namespace TI_GRAFOS_2019
-{
-    static class Program
-    {
+namespace TI_GRAFOS_2019 {
+    static class Program {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
+        static void Main() {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());    
             TesteImplementacaoGrafo();
         }
-        static void TesteImplementacaoGrafo()
-        {
+
+        public static void LeituraArquivo() {
+
+            //Arrumar o local do arquivo para a pasta debug! Não consegui mudar!
+            string[] lines = File.ReadAllLines(@"C:\Users\Norton Souza\Source\Repos\TI_BD_GRAFOS\TI_GRAFOS_2019\bin\Debug\ArquivoGrafos.txt");
+            List<String> dados = new List<string>();
+            string[] separador;
+            List<Aresta> ListaAresta = new List<Aresta>();
+            foreach (string linha in lines) {
+                separador = linha.Split(' ');
+                Aresta aresta = new Aresta(int.Parse(separador[0]), int.Parse(separador[1]), linha);
+                ListaAresta.Add(aresta);
+            }
+
+        }
+        static void TesteImplementacaoGrafo() {
             #region ******Definição do grafo******
             /*      [V1]-----------------------[V5]]---------------[V6]
              *       |                        /
@@ -39,7 +51,7 @@ namespace TI_GRAFOS_2019
             #endregion
             Grafo grafo;
             List<Vertice> listaVertices = new List<Vertice>();
-            Vertice[] verticesA = new Vertice[6];           
+            Vertice[] verticesA = new Vertice[6];
             verticesA[0] = new Vertice(1);
             verticesA[1] = new Vertice(2);
             verticesA[2] = new Vertice(3);
@@ -60,7 +72,7 @@ namespace TI_GRAFOS_2019
             listaVertices.ElementAt(4).ListaADJ.Add(new Vertice(6));
             listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
-            grafo = new Grafo(listaVertices);
+            //grafo = new Grafo(listaVertices);
         }
     }
 }
