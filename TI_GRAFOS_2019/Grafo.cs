@@ -22,5 +22,19 @@ namespace TI_GRAFOS_2019
             //set => lista_ADJ_Vertice = value;
         }
         
+        public void MontaListaAdjacencia()
+        {
+            Vertice vertice = new Vertice();
+            Aresta aresta;
+            int cont = 0;
+
+            foreach(Aresta aux in lista_Arestas)
+            {
+                aresta = new Aresta(this.lista_Arestas.ElementAt(0));
+                cont++;
+
+            }
+            
+        }
     }
 }
