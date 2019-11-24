@@ -89,19 +89,6 @@ namespace TI_GRAFOS_2019 {
             listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
             //grafo = new Grafo(listaVertices);
-
-            List<Aresta> l_Aresta = new List<Aresta>();
-
-
-            Aresta aresta = new Aresta(1, 2, "1 2");
-            l_Aresta.Add(aresta);
-
-
-            /*
-             * Ler primeira linha
-             * atribuir numero de / vertice num de arestas
-             *
-            */
         }
     }
 }
