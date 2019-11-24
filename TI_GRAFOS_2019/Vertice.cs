@@ -18,35 +18,34 @@ namespace TI_GRAFOS_2019
         private int id;
         private int grau;
         private List<Vertice> lista_adj_vertices;
-        private List<Aresta> lista_Arestas;
+        //private List<Aresta> lista_Arestas;
 
         public Vertice() {
         }
-
         public Vertice(int _id)
         {
             this.id = _id;
             this.lista_adj_vertices = new List<Vertice>();
-            this.lista_Arestas = new List<Aresta>();
+            //this.lista_Arestas = new List<Aresta>();
             this.CountGrau();
-        }
+        }        
         public Vertice(int _id, List<Vertice> _listaVertices)
         {
             this.id = _id;
             this.lista_adj_vertices = _listaVertices;
             this.CountGrau();
-            this.lista_Arestas = null;//*******
+            //this.lista_Arestas = null;//*******
         }
 
-        public Vertice(int _id, List<Vertice> _listaVertices, List<Aresta> _arestas)
-        {
-            this.id = _id;
-            this.lista_adj_vertices = _listaVertices;
-            this.lista_Arestas = _arestas;
-            this.CountGrau();
-        }
+        //public Vertice(int _id, List<Vertice> _listaVertices, List<Aresta> _arestas)
+        //{
+        //    this.id = _id;
+        //    this.lista_adj_vertices = _listaVertices;
+        //    this.lista_Arestas = _arestas;
+        //    this.CountGrau();
+        //}
 
-        public List<Vertice> ListaADJ
+        internal List<Vertice> ListaADJ
         {
             get => this.lista_adj_vertices;
             set
@@ -55,10 +54,12 @@ namespace TI_GRAFOS_2019
                 this.grau = this.lista_adj_vertices.Count;
             }
         }
+        protected int ID 
+        { 
+            get => id; set => this.id = value; 
+        }
 
-        public int ID { get => id; }
-        public int Grau { get => grau; }
-
+        protected int Grau { get => grau; }
         private protected void CountGrau()
         {
             try
@@ -80,6 +81,10 @@ namespace TI_GRAFOS_2019
                 MessageBox.Show(texto, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+        public bool Comparar(Vertice _vertice)
+        {
+            return ( (this.id == _vertice.id) ? true : false );
         }
     }
 }

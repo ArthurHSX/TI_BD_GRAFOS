@@ -19,7 +19,9 @@ namespace TI_GRAFOS_2019 {
 
             LeituraArquivo();
 
-
+            //Vertice t = new Torre();
+       
+            
             Console.Read();
         }
 
