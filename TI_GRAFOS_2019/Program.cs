@@ -3,24 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
-namespace TI_GRAFOS_2019
-{
-    static class Program
-    {
+namespace TI_GRAFOS_2019 {
+    static class Program {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            //TesteImplementacaoGrafo();
+        static void Main() {
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
+            TesteImplementacaoGrafo();
+
+            LeituraArquivo();
+
+
+            Console.Read();
         }
-        static void TesteImplementacaoGrafo()
-        {
+
+        public static void LeituraArquivo() {
+            List<Vertice> listaVertices = new List<Vertice>();
+
+            string[] str;
+            string[] lines = File.ReadAllLines(@"C:\TestFolder\ArquivoGrafos.txt");
+            List<string> dados = new List<string>();
+            Vertice[] verticesA = new Vertice[lines.Length];
+            Vertice V = new Vertice();
+
+            for (int i = 0; i <= 17; i++) {
+                int aux = i;
+                if (aux == 2)
+                    foreach (string line in lines) {
+                        str = line.Split(' ');
+                      
+                        //
+                        //
+                        //
+                        //
+                    }
+                dados.Add(lines[i]);
+                Console.WriteLine(dados[i]);
+            }
+
+        }
+        static void TesteImplementacaoGrafo() {
             #region ******Definição do grafo******
             /*      [V1]-----------------------[V5]]---------------[V6]
              *       |                        /
@@ -39,7 +67,7 @@ namespace TI_GRAFOS_2019
             #endregion
             Grafo grafo;
             List<Vertice> listaVertices = new List<Vertice>();
-            Vertice[] verticesA = new Vertice[6];           
+            Vertice[] verticesA = new Vertice[6];
             verticesA[0] = new Vertice(1);
             verticesA[1] = new Vertice(2);
             verticesA[2] = new Vertice(3);
@@ -61,6 +89,19 @@ namespace TI_GRAFOS_2019
             listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
             //grafo = new Grafo(listaVertices);
+
+            List<Aresta> l_Aresta = new List<Aresta>();
+
+
+            Aresta aresta = new Aresta(1, 2, "1 2");
+            l_Aresta.Add(aresta);
+
+
+            /*
+             * Ler primeira linha
+             * atribuir numero de / vertice num de arestas
+             *
+            */
         }
     }
 }

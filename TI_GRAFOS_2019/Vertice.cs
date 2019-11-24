@@ -18,7 +18,10 @@ namespace TI_GRAFOS_2019
         private int id;
         private int grau;
         private List<Vertice> lista_adj_vertices;
-        //private List<Aresta> lista_Arestas;
+        private List<Aresta> lista_Arestas;
+
+        public Vertice() {
+        }
 
         public Vertice(int _id)
         {
