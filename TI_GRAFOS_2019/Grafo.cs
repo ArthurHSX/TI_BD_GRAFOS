@@ -28,26 +28,21 @@ namespace TI_GRAFOS_2019
         public void MontaListaAdjacencia()
         {
             Vertice vertice;
-            //Aresta aresta;
-            int cont = 0;
 
             foreach(Aresta aux in this.lista_Arestas)
             {
-                //aresta = new Aresta(this.lista_Arestas.ElementAt(0));
                 vertice = new Vertice(aux.V1);
 
                 if(VerificaVerticeDuplicado(vertice) == true)
                 {
-                    //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
-                    this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
+                    this.lista_ADJ_Vertice.ElementAt(aux.V1 - 1).ListaADJ.Add(new Vertice(aux.V2, null));
                 }
                 else
                 {
                     this.lista_ADJ_Vertice.Add(vertice);
-                    //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
-                    this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
+                    this.lista_ADJ_Vertice.ElementAt(aux.V1 - 1).ListaADJ.Add(new Vertice(aux.V2, null));
+                    this.lista_ADJ_Vertice.Add(vertice = new Vertice(aux.V2));
                 }
-                cont++;
             }
             
         }        
@@ -114,7 +109,7 @@ namespace TI_GRAFOS_2019
 
         public Vertice ProcuraVertice(Vertice _vertice, List<Vertice> _lista)
         {
-            Vertice aux;
+            Vertice aux = new Vertice();
             for (int i = 0; i < _lista.Count; i++)
             {
                 if (_vertice.Comparar(_lista.ElementAt(i))) {
@@ -122,7 +117,7 @@ namespace TI_GRAFOS_2019
                     break;
                 }
             }
-            return null;
+            return aux;
         }
 
         private bool VerificaVerticeDuplicado(Vertice _vertice)

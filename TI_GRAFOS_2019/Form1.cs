@@ -16,14 +16,28 @@ namespace TI_GRAFOS_2019
         private Infraestrutura infraestrutura;
         private List<Vertice> vertices;
         private string[] vetorBinario;
-        private int contFuncionario, contEstagiaio;
+        private int contFuncionario, contEstagiario;
 
         public Form1()
         {
+            InitializeComponent();
             LeituraArquivo(ref vertices, ref vetorBinario);
+            this.textBox1.Text = "Pressione o botão INICAR";
+            this.textBox1.TextAlign = HorizontalAlignment.Center;
+            this.Refresh();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = "";
+            this.textBox1.TextAlign = HorizontalAlignment.Left;
+            this.Refresh();
             infraestrutura = new Infraestrutura(vertices, vetorBinario);
-            this.contEstagiaio = 0; this.contFuncionario = 0;
-            InitializeComponent();            
+            this.contEstagiario = 0; this.contFuncionario = 0;
+            AtribuiFuncionario();
+
+            // INSERIR A VARIÁVEL DO CUSTO MINIMO ******************************************
+            this.textBox1.Text = ":] " + contEstagiario.ToString() + " " + contFuncionario.ToString();
+            this.Refresh();
         }
         private void LeituraArquivo(ref List<Vertice> _listaVertices, ref string[] _vetorBinario)
         {
@@ -45,7 +59,7 @@ namespace TI_GRAFOS_2019
 
                 for (int i = 1; i < lines.Length; i++)
                 {
-                    if (i == (numAresta + 1))
+                    if (i >= (numAresta + 1))
                     {
                         _vetorBinario[cont] = lines[i];
                         cont++;
@@ -59,7 +73,7 @@ namespace TI_GRAFOS_2019
                 }
                 grafo = new Grafo(ListaAresta);
                 _listaVertices = grafo.Lista_ADJ_Vertice;
-                if(numVertices != _listaVertices.Count || numAresta != ListaAresta.Count)
+                if(numAresta != ListaAresta.Count)
                 {
                     throw new Exception("Valores diferentes");
                 }
@@ -80,11 +94,11 @@ namespace TI_GRAFOS_2019
         {
             for(int i = 0; i < this.infraestrutura.ListaTorres.Count; i++)
             {
-                if(i == 0 || VerificaEstradaTorre(this.infraestrutura.ListaTorres.ElementAt(i - 1),
+                if(i == 0 || !VerificaEstradaTorre(this.infraestrutura.ListaTorres.ElementAt(i - 1),
                     this.infraestrutura.ListaTorres.ElementAt(i)))
                 {
                     this.infraestrutura.ListaTorres.ElementAt(i).Funcionario = "ESTAGIÁRIO";
-                    this.contEstagiaio++;
+                    this.contEstagiario++;
                 }
                 else
                 {
@@ -93,6 +107,7 @@ namespace TI_GRAFOS_2019
                 }
             }
         }
+
         /// <summary>
         /// Método que verifica se existe um caminho ou uma ligação, onde a Torre "a" possui como torre adjacente a torre B
         /// entre a Torre.
@@ -103,7 +118,7 @@ namespace TI_GRAFOS_2019
         /// <returns></returns>
         private bool VerificaEstradaTorre(Torre _a, Torre _b)
         {
-            foreach(Torre aux in _a.ListaADJ)
+            foreach(Vertice aux in _a.ListaADJ)
             {
                 if(aux.Comparar(_b.ID))
                 {

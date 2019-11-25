@@ -62,8 +62,8 @@ namespace TI_GRAFOS_2019
         public int Grau { get => grau; }
         private protected void CountGrau()
         {
-            
-            this.grau = this.lista_adj_vertices.Count;         
+            if(this.lista_adj_vertices != null)
+                this.grau = this.lista_adj_vertices.Count;         
             
         }
         public bool Comparar(Vertice _vertice)

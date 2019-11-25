@@ -10,6 +10,7 @@ namespace TI_GRAFOS_2019
     {
         private string codigo;
         private string funcionario;
+        private bool construida;
 
         public Torre(string _codigo)
         {

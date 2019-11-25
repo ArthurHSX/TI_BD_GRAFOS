@@ -12,6 +12,7 @@ namespace TI_GRAFOS_2019
         public Infraestrutura(List<Vertice> _listaVertices, string[] _codigoTorre)
         {
             base.Lista_ADJ_Vertice = _listaVertices;
+            this.torres = new List<Torre>();
             PreencheListaTorres(_codigoTorre);
         }
         public List<Torre> ListaTorres
@@ -26,6 +27,7 @@ namespace TI_GRAFOS_2019
             foreach(Vertice aux in base.Lista_ADJ_Vertice)
             {
                 torre = new Torre(_codigo[cont], aux.ID, null, aux.ListaADJ);
+                this.torres.Add(torre);
                 cont++;
             }
         }
