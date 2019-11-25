@@ -97,13 +97,15 @@ namespace TI_GRAFOS_2019
                 if(i == 0 || !VerificaEstradaTorre(this.infraestrutura.ListaTorres.ElementAt(i - 1),
                     this.infraestrutura.ListaTorres.ElementAt(i)))
                 {
-                    this.infraestrutura.ListaTorres.ElementAt(i).Funcionario = "ESTAGIÁRIO";
-                    this.contEstagiario++;
+                    this.infraestrutura.ListaTorres.ElementAt(i).Funcionario = "FUNCIONÁRIO";
+                    //this.contEstagiario++;
+                    this.contFuncionario++;
                 }
                 else
                 {
-                    this.infraestrutura.ListaTorres.ElementAt(i).Funcionario = "FUNCIONÁRIO";
-                    this.contFuncionario++;
+                    this.infraestrutura.ListaTorres.ElementAt(i).Funcionario = "ESTAGIÁRIO";
+                    //this.contFuncionario++;
+                    this.contEstagiario++;
                 }
             }
         }
