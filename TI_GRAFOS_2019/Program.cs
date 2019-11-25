@@ -12,44 +12,23 @@ namespace TI_GRAFOS_2019 {
         /// </summary>
         [STAThread]
         static void Main() {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            //TesteImplementacaoGrafo();
-
-            LeituraArquivo();
-
-            //Vertice t = new Torre();
-       
-            
-            Console.Read();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
 
-        public static void LeituraArquivo() {
-            List<Vertice> listaVertices = new List<Vertice>();
-
-            string[] str;
-            string[] lines = File.ReadAllLines(@"ArquivoGrafos.txt");
-            List<string> dados = new List<string>();
-            Vertice[] verticesA = new Vertice[lines.Length];
-            Vertice V = new Vertice();
-
-            for (int i = 0; i <= 17; i++) {
-                int aux = i;
-                if (aux == 2)
-                    foreach (string line in lines) {
-                        str = line.Split(' ');
-                      
-                        //
-                        //
-                        //
-                        //
-                    }
-                dados.Add(lines[i]);
-                Console.WriteLine(dados[i]);
-            }
-
-        }
+        //public static void LeituraArquivo() {
+        //    string[] lines = File.ReadAllLines(@"ArquivoGrafos.txt"); 
+        //    List<String> dados = new List<string>();
+        //    string[] separador;
+        //    List<Aresta> ListaAresta = new List<Aresta>();
+        //    foreach (string linha in lines)
+        //    {
+        //        separador = linha.Split(' ');
+        //        Aresta aresta = new Aresta(int.Parse(separador[0]), int.Parse(separador[1]), linha);
+        //        ListaAresta.Add(aresta);
+        //    }
+        //}        
         //static void TesteImplementacaoGrafo()
         //{
         //    #region ******Definição do grafo******
@@ -91,7 +70,7 @@ namespace TI_GRAFOS_2019 {
         //    listaVertices.ElementAt(4).ListaADJ.Add(new Vertice(6));
         //    listaVertices.ElementAt(5).ListaADJ.Add(new Vertice(5));
 
-            //grafo = new Grafo(listaVertices);
+        //grafo = new Grafo(listaVertices);
         //}
     }
 }

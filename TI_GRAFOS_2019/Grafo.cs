@@ -31,7 +31,7 @@ namespace TI_GRAFOS_2019
             //Aresta aresta;
             int cont = 0;
 
-            foreach(Aresta aux in lista_Arestas)
+            foreach(Aresta aux in this.lista_Arestas)
             {
                 //aresta = new Aresta(this.lista_Arestas.ElementAt(0));
                 vertice = new Vertice(aux.V1);

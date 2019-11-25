@@ -8,15 +8,15 @@ namespace TI_GRAFOS_2019
 {
     class Torre : Vertice
     {
-        private int codigo;
+        private string codigo;
         private string funcionario;
 
-        public Torre(int _codigo)
+        public Torre(string _codigo)
         {
             this.codigo = _codigo;
             this.funcionario = null;
         }
-        public Torre(int _codigo, int _id, string _funcioario, List<Vertice> _lista)
+        public Torre(string _codigo, int _id, string _funcioario, List<Vertice> _lista)
         {
             this.codigo = _codigo;
             base.ID = _id;

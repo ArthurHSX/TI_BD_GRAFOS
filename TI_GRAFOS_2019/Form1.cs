@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TI_GRAFOS_2019
 {
@@ -14,7 +15,7 @@ namespace TI_GRAFOS_2019
     {
         private Infraestrutura infraestrutura;
         private List<Vertice> vertices;
-        private int[] vetorBinario;
+        private string[] vetorBinario;
         private int contFuncionario, contEstagiaio;
 
         public Form1()
@@ -24,9 +25,55 @@ namespace TI_GRAFOS_2019
             this.contEstagiaio = 0; this.contFuncionario = 0;
             InitializeComponent();            
         }
-        private void LeituraArquivo(ref List<Vertice> _listaVertices, ref int[] _vetorBinario)
+        private void LeituraArquivo(ref List<Vertice> _listaVertices, ref string[] _vetorBinario)
         {
+            try
+            {
+                Grafo grafo;
 
+                string[] lines = File.ReadAllLines(@"ArquivoGrafos.txt");
+                List<String> dados = new List<string>();
+                string[] separador;
+                List<Aresta> ListaAresta = new List<Aresta>();
+
+                //Lendo a primeira linha do arquivo em tempo de execução.
+                int numVertices = 0, numAresta = 0, cont = 0;
+                separador = lines[0].Split(' ');
+                numVertices = int.Parse(separador[0]); numAresta = int.Parse(separador[1]);
+                //Criado o vetor de binários, correspondente ao número de vertices. Este bin será o código de cada torre.
+                _vetorBinario = new string[numVertices];
+
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    if (i == (numAresta + 1))
+                    {
+                        _vetorBinario[cont] = lines[i];
+                        cont++;
+                    }
+                    else
+                    {
+                        separador = lines[i].Split(' ');
+                        Aresta aresta = new Aresta(int.Parse(separador[0]), int.Parse(separador[1]), lines[i]);
+                        ListaAresta.Add(aresta);
+                    }
+                }
+                grafo = new Grafo(ListaAresta);
+                _listaVertices = grafo.Lista_ADJ_Vertice;
+                if(numVertices != _listaVertices.Count || numAresta != ListaAresta.Count)
+                {
+                    throw new Exception("Valores diferentes");
+                }
+            }
+            catch (Exception e) when (e.Message == "Valores diferentes")
+            {
+                string texto = "A quantidade de elementos na 'Lista de adjacência' é diferente" +
+                               " da quantidade de elementos na 'Lista de Arestas'." +
+                               "\n\n Verifique o método de leitura do arquivo" + 
+                               "\n\n " + e.ToString();
+                string titulo = "Erro na quantidade de elementos";
+
+                MessageBox.Show(texto, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void AtribuiFuncionario()

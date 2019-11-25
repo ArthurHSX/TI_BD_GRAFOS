@@ -9,7 +9,7 @@ namespace TI_GRAFOS_2019
     class Infraestrutura : Grafo
     {
         private List<Torre> torres;
-        public Infraestrutura(List<Vertice> _listaVertices, int[] _codigoTorre)
+        public Infraestrutura(List<Vertice> _listaVertices, string[] _codigoTorre)
         {
             base.Lista_ADJ_Vertice = _listaVertices;
             PreencheListaTorres(_codigoTorre);
@@ -19,7 +19,7 @@ namespace TI_GRAFOS_2019
             get => this.torres;
         }
         
-        private void PreencheListaTorres(int[] _codigo)
+        private void PreencheListaTorres(string[] _codigo)
         {
             Torre torre;
             int cont = 0;
