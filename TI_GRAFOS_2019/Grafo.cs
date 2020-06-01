@@ -47,78 +47,78 @@ namespace TI_GRAFOS_2019
             
         }        
 
-        /// <summary>
-        /// INCOMPLETO*******************.
-        /// Falta terminar de implementar!!!!
-        /// </summary>
-        public void MontaListaAdjacenciaCompleto()
-        {
-            Vertice vertice1;
-            Vertice vertice2;
-            //Aresta aresta;
-            int cont = 0;
+        ///// <summary>
+        ///// INCOMPLETO*******************.
+        ///// Falta terminar de implementar!!!!
+        ///// </summary>
+        //public void MontaListaAdjacenciaCompleto()
+        //{
+        //    Vertice vertice1;
+        //    Vertice vertice2;
+        //    //Aresta aresta;
+        //    int cont = 0;
 
-            foreach (Aresta aux in lista_Arestas)
-            {
-                //aresta = new Aresta(this.lista_Arestas.ElementAt(0));
-                vertice1 = new Vertice(aux.V1);
-                vertice2 = new Vertice(aux.V2);
+        //    foreach (Aresta aux in lista_Arestas)
+        //    {
+        //        //aresta = new Aresta(this.lista_Arestas.ElementAt(0));
+        //        vertice1 = new Vertice(aux.V1);
+        //        vertice2 = new Vertice(aux.V2);
 
-                if (VerificaVerticeDuplicado(vertice1) == true)
-                {
-                    //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
-                    this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
-                    // Estou reaproveitando a variável "vertice" para o segundo vertice "v2"                    
-                    if(VerificaVerticeDuplicado(vertice2) == false)
-                    {
-                        this.lista_ADJ_Vertice.Add(vertice2);
-                    }
-                    else
-                    {
-                        /*  Chamo o metodo procura passando como parâmetro o "vertice2", o método me retorna o indice que,
-                         *  o programa vai no elemento da lista onde tá esse índice e adiciono uma ligação com o vertice1 
-                         */
-                        this.lista_ADJ_Vertice.ElementAt(ProcuraVertice(vertice2)).ListaADJ.Add(vertice1);
-                    }
-                }
-                else
-                {
-                    this.lista_ADJ_Vertice.Add(vertice1);
-                    //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
-                    this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
-                }
-                cont++;
-            }
+        //        if (VerificaVerticeDuplicado(vertice1) == true)
+        //        {
+        //            //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
+        //            this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
+        //            // Estou reaproveitando a variável "vertice" para o segundo vertice "v2"                    
+        //            if(VerificaVerticeDuplicado(vertice2) == false)
+        //            {
+        //                this.lista_ADJ_Vertice.Add(vertice2);
+        //            }
+        //            else
+        //            {
+        //                /*  Chamo o metodo procura passando como parâmetro o "vertice2", o método me retorna o indice que,
+        //                 *  o programa vai no elemento da lista onde tá esse índice e adiciono uma ligação com o vertice1 
+        //                 */
+        //                this.lista_ADJ_Vertice.ElementAt(ProcuraVertice(vertice2)).ListaADJ.Add(vertice1);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            this.lista_ADJ_Vertice.Add(vertice1);
+        //            //this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aresta.V2));
+        //            this.lista_ADJ_Vertice.ElementAt(cont).ListaADJ.Add(new Vertice(aux.V2));
+        //        }
+        //        cont++;
+        //    }
 
-        }
+        //}
 
-        private int ProcuraVertice(Vertice aux)
-        {
-            int indice = int.MinValue;
-            for(int i = 0; i < this.lista_ADJ_Vertice.Count; i++)
-            {
-                if(aux.Comparar(lista_ADJ_Vertice.ElementAt(i)) == true)
-                {
-                    indice = i;
-                    break;
-                }
-            }
+        //private int ProcuraVertice(Vertice aux)
+        //{
+        //    int indice = int.MinValue;
+        //    for(int i = 0; i < this.lista_ADJ_Vertice.Count; i++)
+        //    {
+        //        if(aux.Comparar(lista_ADJ_Vertice.ElementAt(i)) == true)
+        //        {
+        //            indice = i;
+        //            break;
+        //        }
+        //    }
 
-            return indice;
-        }
+        //    return indice;
+        //}
 
-        public Vertice ProcuraVertice(Vertice _vertice, List<Vertice> _lista)
-        {
-            Vertice aux = new Vertice();
-            for (int i = 0; i < _lista.Count; i++)
-            {
-                if (_vertice.Comparar(_lista.ElementAt(i))) {
-                    aux = _lista.ElementAt(i);
-                    break;
-                }
-            }
-            return aux;
-        }
+        //public Vertice ProcuraVertice(Vertice _vertice, List<Vertice> _lista)
+        //{
+        //    Vertice aux = new Vertice();
+        //    for (int i = 0; i < _lista.Count; i++)
+        //    {
+        //        if (_vertice.Comparar(_lista.ElementAt(i))) {
+        //            aux = _lista.ElementAt(i);
+        //            break;
+        //        }
+        //    }
+        //    return aux;
+        //}
 
         private bool VerificaVerticeDuplicado(Vertice _vertice)
         {

@@ -17,6 +17,8 @@ namespace TI_GRAFOS_2019 {
             Application.Run(new Form1());
         }
 
+       
+
         //public static void LeituraArquivo() {
         //    string[] lines = File.ReadAllLines(@"ArquivoGrafos.txt"); 
         //    List<String> dados = new List<string>();
